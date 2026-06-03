@@ -1,0 +1,29 @@
+/* watsonx Orchestrate Widget Override Styles */
+
+/* Ensure no top-level elements push content down */
+body {
+  position: relative !important;
+}
+
+/* Ensure our Next.js root is at the top */
+#__next {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+/* Ensure chat widget stays within its container */
+#chat-root {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure chat iframe or widget doesn't escape container */
+#chat-root iframe,
+#chat-root > div {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Made with Bob */

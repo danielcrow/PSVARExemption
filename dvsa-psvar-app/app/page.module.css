@@ -1,0 +1,327 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f2f1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+.header {
+  background-color: #0b0c0c;
+  border-bottom: 10px solid #1d70b8;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.headerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+}
+
+.govukLogo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "nta", Arial, sans-serif;
+  margin: 0;
+}
+
+.dvsaLogo {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 15px;
+  border-left: 2px solid #ffffff;
+  font-family: "nta", Arial, sans-serif;
+  margin: 0;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.pageHeader {
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 0 0 40px 0;
+  border-left: 5px solid #1d70b8;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0b0c0c;
+  margin: 0 0 15px 0;
+  font-family: "nta", Arial, sans-serif;
+}
+
+.subtitle {
+  font-size: 19px;
+  color: #505a5f;
+  margin: 0 auto;
+  font-family: "nta", Arial, sans-serif;
+  max-width: 800px;
+}
+
+/* Floating Chat Button */
+.chatButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1d70b8;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.chatButton:hover {
+  background-color: #003078;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.chatButton:active {
+  transform: scale(0.95);
+}
+
+.chatButton svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Floating Chat Widget - 50% of screen width minimum */
+.chatSection {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 50vw;
+  min-width: 600px;
+  max-width: 900px;
+  height: 80vh;
+  max-height: 800px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatHeader {
+  display: none; /* Hide header for floating widget */
+}
+
+.chatContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border: 2px solid #1d70b8;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+
+.chatIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 0 0 40px 0;
+}
+
+.infoCard {
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 5px solid #1d70b8;
+  margin: 0;
+}
+
+.infoCard h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0b0c0c;
+  margin: 0 0 20px 0;
+  font-family: "nta", Arial, sans-serif;
+}
+
+.infoCard p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0b0c0c;
+  margin: 0 0 10px 0;
+  font-family: "nta", Arial, sans-serif;
+}
+
+.infoCard ul,
+.infoCard ol {
+  margin: 0 0 15px 20px;
+}
+
+.infoCard li {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-family: "nta", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.infoCard a {
+  color: #1d70b8;
+  text-decoration: underline;
+}
+
+.infoCard a:hover {
+  color: #003078;
+}
+
+/* Footer */
+.footer {
+  background-color: #0b0c0c;
+  color: #ffffff;
+  padding: 30px 0;
+  margin: auto 0 0 0;
+}
+
+.footerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footerLink {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0 15px;
+  font-size: 16px;
+  font-family: "nta", Arial, sans-serif;
+}
+
+.footerLink:hover {
+  color: #b1b4b6;
+}
+
+.copyright {
+  margin: 20px 0 0 0;
+  color: #b1b4b6;
+  font-size: 14px;
+  font-family: "nta", Arial, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  /* Tablet: 60% of screen width */
+  .chatSection {
+    width: 60vw;
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader h1 {
+    font-size: 28px;
+  }
+
+  .govukLogo {
+    font-size: 18px;
+  }
+
+  .dvsaLogo {
+    font-size: 16px;
+  }
+
+  .main {
+    padding: 20px 10px;
+  }
+
+  .pageHeader,
+  .infoCard {
+    padding: 20px;
+  }
+
+  /* Mobile: Full width floating chat at bottom */
+  .chatSection {
+    bottom: 80px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    height: 70vh;
+    max-height: 600px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .chatContainer {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .chatIframe {
+    border-radius: 10px 10px 0 0;
+  }
+
+  .chatButton {
+    width: 56px;
+    height: 56px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .chatButton svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Made with Bob */

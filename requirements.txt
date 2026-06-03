@@ -1,0 +1,23 @@
+# PSVAR Exemption Assessment Agent - Python Dependencies
+
+# Core watsonx Orchestrate SDK
+# Install from: https://github.com/IBM/watsonx-orchestrate-adk
+# ibm-watsonx-orchestrate>=1.0.0
+
+# Data validation and serialization
+pydantic>=2.0.0
+
+# Testing framework
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+
+# Type checking (development)
+basedpyright>=1.10.0
+
+# Code formatting (development)
+black>=23.0.0
+isort>=5.12.0
+
+# Linting (development)
+ruff>=0.1.0

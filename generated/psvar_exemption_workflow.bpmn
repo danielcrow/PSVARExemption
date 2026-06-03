@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_YjGgoEFQED-5dshjU6UOWQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_collectCommitments_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCommitments_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectVINs_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectFleet_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_confirmService_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_collectCompanyInfo_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:collaboration id="_E8D3C544-007E-4974-B588-B12CD7752D11" name="Default Collaboration">
+    <bpmn2:participant id="_905FB950-DC52-4DE0-B698-53DA967AAEC1" name="Pool Participant" processRef="psvar_exemption_workflow"/>
+  </bpmn2:collaboration>
+  <bpmn2:process id="psvar_exemption_workflow" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false" name="psvar_exemption_workflow" isExecutable="true" processType="Public">
+    <bpmn2:sequenceFlow id="flow1" sourceRef="start" targetRef="collectCompanyInfo"/>
+    <bpmn2:sequenceFlow id="flow2" sourceRef="collectCompanyInfo" targetRef="confirmService"/>
+    <bpmn2:sequenceFlow id="flow3" sourceRef="confirmService" targetRef="checkScope"/>
+    <bpmn2:sequenceFlow id="flow4" name="No" sourceRef="checkScope" targetRef="endOutOfScope">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[No]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow5" name="Yes" sourceRef="checkScope" targetRef="collectFleet">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Yes]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow6" sourceRef="collectFleet" targetRef="collectVINs"/>
+    <bpmn2:sequenceFlow id="flow7" sourceRef="collectVINs" targetRef="validateVINs"/>
+    <bpmn2:sequenceFlow id="flow8" sourceRef="validateVINs" targetRef="checkNonCompliant"/>
+    <bpmn2:sequenceFlow id="flow10" name="Yes" sourceRef="checkNonCompliant" targetRef="collectCommitments">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Yes]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow11" sourceRef="collectCommitments" targetRef="converge1"/>
+    <bpmn2:sequenceFlow id="flow9" name="No" sourceRef="checkNonCompliant" targetRef="converge1">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[No]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow12" sourceRef="converge1" targetRef="evaluate"/>
+    <bpmn2:sequenceFlow id="flow13" sourceRef="evaluate" targetRef="checkOutcome"/>
+    <bpmn2:sequenceFlow id="flow16" name="Investigation" sourceRef="checkOutcome" targetRef="createTask">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Investigation]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow18" sourceRef="createTask" targetRef="converge2"/>
+    <bpmn2:sequenceFlow id="flow17" name="Not Required" sourceRef="checkOutcome" targetRef="converge2">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Not Required]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow15" name="Cannot Have" sourceRef="checkOutcome" targetRef="converge2">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Cannot Have]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow14" name="Can Have" sourceRef="checkOutcome" targetRef="converge2">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Can Have]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="flow19" sourceRef="converge2" targetRef="sendEmail"/>
+    <bpmn2:sequenceFlow id="flow20" sourceRef="sendEmail" targetRef="end"/>
+    <bpmn2:startEvent id="start" name="Start Application">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Start Application]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>flow1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="collectCompanyInfo" name="Collect Company Information">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Collect Company Information]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow1</bpmn2:incoming>
+      <bpmn2:outgoing>flow2</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="collectCompanyInfo_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_collectCompanyInfo_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="collectCompanyInfo_SkippableInputX" drools:dtype="Object" itemSubjectRef="_collectCompanyInfo_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>collectCompanyInfo_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>collectCompanyInfo_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectCompanyInfo_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectCompanyInfo_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectCompanyInfo_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectCompanyInfo_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="confirmService" name="Confirm Service Details">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Confirm Service Details]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow2</bpmn2:incoming>
+      <bpmn2:outgoing>flow3</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="confirmService_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_confirmService_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="confirmService_SkippableInputX" drools:dtype="Object" itemSubjectRef="_confirmService_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>confirmService_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>confirmService_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>confirmService_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[confirmService_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>confirmService_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[confirmService_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="checkScope" name="In Scope?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[In Scope?]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow3</bpmn2:incoming>
+      <bpmn2:outgoing>flow5</bpmn2:outgoing>
+      <bpmn2:outgoing>flow4</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:endEvent id="endOutOfScope" name="Out of Scope">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Out of Scope]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow4</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:userTask id="collectFleet" name="Collect Fleet Composition">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Collect Fleet Composition]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow5</bpmn2:incoming>
+      <bpmn2:outgoing>flow6</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="collectFleet_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_collectFleet_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="collectFleet_SkippableInputX" drools:dtype="Object" itemSubjectRef="_collectFleet_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>collectFleet_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>collectFleet_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectFleet_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectFleet_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectFleet_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectFleet_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="collectVINs" name="Collect VINs">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Collect VINs]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow6</bpmn2:incoming>
+      <bpmn2:outgoing>flow7</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="collectVINs_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_collectVINs_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="collectVINs_SkippableInputX" drools:dtype="Object" itemSubjectRef="_collectVINs_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>collectVINs_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>collectVINs_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectVINs_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectVINs_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectVINs_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectVINs_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:task id="validateVINs" drools:taskName="" name="Validate VINs">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Validate VINs]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow7</bpmn2:incoming>
+      <bpmn2:outgoing>flow8</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="validateVINs_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>validateVINs_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>validateVINs_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[validateVINs_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="checkNonCompliant" name="Has Non-Compliant?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Has Non-Compliant?]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow8</bpmn2:incoming>
+      <bpmn2:outgoing>flow9</bpmn2:outgoing>
+      <bpmn2:outgoing>flow10</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="collectCommitments" name="Collect Operational Commitments">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Collect Operational Commitments]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow10</bpmn2:incoming>
+      <bpmn2:outgoing>flow11</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="collectCommitments_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_collectCommitments_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="collectCommitments_SkippableInputX" drools:dtype="Object" itemSubjectRef="_collectCommitments_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>collectCommitments_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>collectCommitments_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectCommitments_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectCommitments_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>collectCommitments_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[collectCommitments_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="converge1" name="Converge" gatewayDirection="Converging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Converge]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow9</bpmn2:incoming>
+      <bpmn2:incoming>flow11</bpmn2:incoming>
+      <bpmn2:outgoing>flow12</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="evaluate" drools:taskName="" name="Evaluate Exemption">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Evaluate Exemption]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow12</bpmn2:incoming>
+      <bpmn2:outgoing>flow13</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="evaluate_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>evaluate_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>evaluate_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[evaluate_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="checkOutcome" name="Outcome?" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Outcome?]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow13</bpmn2:incoming>
+      <bpmn2:outgoing>flow14</bpmn2:outgoing>
+      <bpmn2:outgoing>flow15</bpmn2:outgoing>
+      <bpmn2:outgoing>flow17</bpmn2:outgoing>
+      <bpmn2:outgoing>flow16</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="createTask" drools:taskName="" name="Create DVSA Task">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Create DVSA Task]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow16</bpmn2:incoming>
+      <bpmn2:outgoing>flow18</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="createTask_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>createTask_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>createTask_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[createTask_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:exclusiveGateway id="converge2" name="Converge" gatewayDirection="Converging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Converge]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow14</bpmn2:incoming>
+      <bpmn2:incoming>flow15</bpmn2:incoming>
+      <bpmn2:incoming>flow17</bpmn2:incoming>
+      <bpmn2:incoming>flow18</bpmn2:incoming>
+      <bpmn2:outgoing>flow19</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="sendEmail" drools:taskName="" name="Send Email">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Send Email]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow19</bpmn2:incoming>
+      <bpmn2:outgoing>flow20</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="sendEmail_TaskNameInputX" drools:dtype="Object" name="TaskName"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>sendEmail_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>sendEmail_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[sendEmail_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="end" name="Complete">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Complete]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>flow20</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="psvar_exemption_workflow">
+      <bpmndi:BPMNShape id="shape_end" bpmnElement="end">
+        <dc:Bounds height="56" width="56" x="2050" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_sendEmail" bpmnElement="sendEmail">
+        <dc:Bounds height="80" width="100" x="1900" y="78"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_converge2" bpmnElement="converge2">
+        <dc:Bounds height="56" width="56" x="1784" y="111"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_createTask" bpmnElement="createTask">
+        <dc:Bounds height="80" width="100" x="1657" y="374"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_checkOutcome" bpmnElement="checkOutcome">
+        <dc:Bounds height="56" width="56" x="1587" y="111"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_evaluate" bpmnElement="evaluate">
+        <dc:Bounds height="112" width="123" x="1413" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_converge1" bpmnElement="converge1">
+        <dc:Bounds height="56" width="56" x="1320" y="111"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_collectCommitments" bpmnElement="collectCommitments">
+        <dc:Bounds height="116" width="160" x="1177" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_checkNonCompliant" bpmnElement="checkNonCompliant">
+        <dc:Bounds height="56" width="56" x="1090" y="112"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_validateVINs" bpmnElement="validateVINs">
+        <dc:Bounds height="80" width="100" x="954" y="99"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_collectVINs" bpmnElement="collectVINs">
+        <dc:Bounds height="80" width="100" x="803" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_collectFleet" bpmnElement="collectFleet">
+        <dc:Bounds height="80" width="100" x="675" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_endOutOfScope" bpmnElement="endOutOfScope">
+        <dc:Bounds height="56" width="56" x="570" y="269"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_checkScope" bpmnElement="checkScope">
+        <dc:Bounds height="56" width="56" x="570" y="111"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_confirmService" bpmnElement="confirmService">
+        <dc:Bounds height="122" width="127" x="365" y="78"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_collectCompanyInfo" bpmnElement="collectCompanyInfo">
+        <dc:Bounds height="122" width="136" x="200" y="78"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_start" bpmnElement="start">
+        <dc:Bounds height="56" width="56" x="100" y="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape_sendEmail_to_shape_end" bpmnElement="flow20">
+        <di:waypoint x="2000" y="118"/>
+        <di:waypoint x="2050" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_converge2_to_shape_sendEmail" bpmnElement="flow19">
+        <di:waypoint x="1834" y="136"/>
+        <di:waypoint x="1900" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkOutcome_to_shape_converge2" bpmnElement="flow14">
+        <di:waypoint x="1637" y="136"/>
+        <di:waypoint x="1784" y="136"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkOutcome_to_shape_converge2" bpmnElement="flow15">
+        <di:waypoint x="1612" y="161"/>
+        <di:waypoint x="1615" y="278"/>
+        <di:waypoint x="1812" y="278"/>
+        <di:waypoint x="1809" y="161"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkOutcome_to_shape_converge2" bpmnElement="flow17">
+        <di:waypoint x="1612" y="111"/>
+        <di:waypoint x="1615" y="22"/>
+        <di:waypoint x="1812" y="22"/>
+        <di:waypoint x="1809" y="111"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_createTask_to_shape_converge2" bpmnElement="flow18">
+        <di:waypoint x="1757" y="414"/>
+        <di:waypoint x="1885" y="419"/>
+        <di:waypoint x="1809" y="161"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkOutcome_to_shape_createTask" bpmnElement="flow16">
+        <di:waypoint x="1643" y="139"/>
+        <di:waypoint x="1643" y="253"/>
+        <di:waypoint x="1613" y="253"/>
+        <di:waypoint x="1613" y="414"/>
+        <di:waypoint x="1657" y="414"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_evaluate_to_shape_checkOutcome" bpmnElement="flow13">
+        <di:waypoint x="1536" y="156"/>
+        <di:waypoint x="1587" y="136"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_converge1_to_shape_evaluate" bpmnElement="flow12">
+        <di:waypoint x="1370" y="136"/>
+        <di:waypoint x="1413" y="156"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkNonCompliant_to_shape_converge1" bpmnElement="flow9">
+        <di:waypoint x="1115" y="162"/>
+        <di:waypoint x="1118" y="255"/>
+        <di:waypoint x="1381" y="266"/>
+        <di:waypoint x="1345" y="161"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_collectCommitments_to_shape_converge1" bpmnElement="flow11">
+        <di:waypoint x="1337" y="158"/>
+        <di:waypoint x="1320" y="136"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkNonCompliant_to_shape_collectCommitments" bpmnElement="flow10">
+        <di:waypoint x="1140" y="137"/>
+        <di:waypoint x="1177" y="158"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_validateVINs_to_shape_checkNonCompliant" bpmnElement="flow8">
+        <di:waypoint x="1054" y="139"/>
+        <di:waypoint x="1090" y="137"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_collectVINs_to_shape_validateVINs" bpmnElement="flow7">
+        <di:waypoint x="903" y="140"/>
+        <di:waypoint x="954" y="139"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_collectFleet_to_shape_collectVINs" bpmnElement="flow6">
+        <di:waypoint x="775" y="140"/>
+        <di:waypoint x="803" y="140"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkScope_to_shape_collectFleet" bpmnElement="flow5">
+        <di:waypoint x="620" y="136"/>
+        <di:waypoint x="675" y="140"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_checkScope_to_shape_endOutOfScope" bpmnElement="flow4">
+        <di:waypoint x="595" y="161"/>
+        <di:waypoint x="588" y="269"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_confirmService_to_shape_checkScope" bpmnElement="flow3">
+        <di:waypoint x="492" y="139"/>
+        <di:waypoint x="570" y="136"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_collectCompanyInfo_to_shape_confirmService" bpmnElement="flow2">
+        <di:waypoint x="336" y="139"/>
+        <di:waypoint x="365" y="139"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_start_to_shape_collectCompanyInfo" bpmnElement="flow1">
+        <di:waypoint x="136" y="118"/>
+        <di:waypoint x="200" y="139"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters/>
+          <bpsim:ElementParameters elementRef="sendEmail">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="createTask">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="evaluate">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="collectCommitments">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="validateVINs">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="collectVINs">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="collectFleet">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="confirmService">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="collectCompanyInfo">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="start">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_YjGgoEFQED-5dshjU6UOWQ</bpmn2:source>
+    <bpmn2:target>_YjGgoEFQED-5dshjU6UOWQ</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

@@ -1,0 +1,268 @@
+{
+  "PSVAR_ASSESSMENT_DATA": {
+    "type": "object",
+    "description": "Complete data structure required to assess PSVAR exemption eligibility for home-to-school transport services",
+    "properties": {
+      "company_name": {
+        "type": "string",
+        "description": "Legal or trading name of the transport operator"
+      },
+      "operator_licence_number": {
+        "type": "string",
+        "description": "PSV operator licence number issued by the Traffic Commissioner"
+      },
+      "authorised_contact_name": {
+        "type": "string",
+        "description": "Name of the person authorized to make this application"
+      },
+      "authorised_contact_telephone": {
+        "type": "string",
+        "description": "Contact telephone number"
+      },
+      "authorised_contact_email": {
+        "type": "string",
+        "description": "Contact email address for correspondence"
+      },
+      "authorised_contact_postal_address": {
+        "type": "string",
+        "description": "Full postal address for correspondence and certificate delivery"
+      },
+      "authorised_contact_postcode": {
+        "type": "string",
+        "description": "UK postcode"
+      },
+      "service_types": {
+        "type": "array",
+        "description": "Types of services operated: HTS (Home-to-School) or RR (Rail Replacement)",
+        "items": {
+          "type": "string"
+        }
+      },
+      "hts_closed_door": {
+        "type": "boolean",
+        "description": "Whether home-to-school services are closed-door (pre-booked, not available to general public). If false, service is OUT OF SCOPE."
+      },
+      "hts_has_paying_customers": {
+        "type": "boolean",
+        "description": "Whether home-to-school services have paying customers. If false for HTS-only operators, service is OUT OF SCOPE."
+      },
+      "rr_when_train_unavailable": {
+        "type": "boolean",
+        "description": "Whether rail replacement services only operate when trains are unavailable (not used in HTS-only workflow)"
+      },
+      "total_hts_rr_fleet_size": {
+        "type": "integer",
+        "description": "Total number of vehicles used for home-to-school services. Determines compliance band: A (1-5), B (6-9), C (10-29), D (30+)"
+      },
+      "fully_compliant_vehicle_count": {
+        "type": "integer",
+        "description": "Number of vehicles that are fully PSVAR compliant (meet all accessibility requirements)"
+      },
+      "partially_compliant_vehicle_count": {
+        "type": "integer",
+        "description": "Number of vehicles that are partially compliant (meet some but not all requirements)"
+      },
+      "non_compliant_vehicle_count": {
+        "type": "integer",
+        "description": "Number of vehicles that are non-compliant (do not meet accessibility requirements)"
+      },
+      "temporarily_out_of_service_count": {
+        "type": "integer",
+        "description": "Number of vehicles temporarily out of service (not counted in compliance calculations)"
+      },
+      "vehicle_identification_numbers": {
+        "type": "array",
+        "description": "VINs for all vehicles in the HTS fleet (17 characters each, ISO 3779 standard, excludes I, O, Q)",
+        "items": {
+          "type": "string"
+        }
+      },
+      "partially_compliant_vehicle_identification_numbers": {
+        "type": "array",
+        "description": "VINs specifically for partially compliant vehicles",
+        "items": {
+          "type": "string"
+        }
+      },
+      "non_compliant_vehicle_identification_numbers": {
+        "type": "array",
+        "description": "VINs specifically for non-compliant vehicles",
+        "items": {
+          "type": "string"
+        }
+      },
+      "exemption_certificate_exists": {
+        "type": "boolean",
+        "description": "Whether the operator currently holds a valid PSVAR exemption certificate. If false and fleet non-compliant, operator needs to apply for exemption."
+      },
+      "exemption_start_date": {
+        "type": "string",
+        "description": "Start date of the exemption certificate in YYYY-MM-DD format. Required if exemption_certificate_exists is true."
+      },
+      "exemption_end_date": {
+        "type": "string",
+        "description": "End date of the exemption certificate in YYYY-MM-DD format. Required if exemption_certificate_exists is true. Exemption regime expires 2026-07-31."
+      },
+      "exemption_certificate_reference": {
+        "type": "string",
+        "description": "Unique reference number or identifier for the exemption certificate. Required if exemption_certificate_exists is true."
+      },
+      "rail_commissioning_company_details": {
+        "type": "string",
+        "description": "Details of rail commissioning company (not used in HTS-only workflow)"
+      },
+      "exemption_copy_carried_onboard": {
+        "type": "boolean",
+        "description": "Whether a copy of the exemption certificate is carried onboard each relevant non-compliant vehicle. Must be true to maintain exemption validity. Only required if exemption exists."
+      },
+      "alternative_accessible_transport_available": {
+        "type": "boolean",
+        "description": "Whether alternative accessible transport is available for passengers who cannot access exempt vehicles. Must be true to maintain exemption validity. Only required if exemption exists."
+      },
+      "written_confirmation_retained": {
+        "type": "boolean",
+        "description": "Whether written confirmation of alternative accessible transport arrangements is retained. Must be true to maintain exemption validity. Only required if exemption exists."
+      },
+      "has_read_band_compliance_requirements": {
+        "type": "boolean",
+        "description": "Whether the operator confirms they have read and understood their compliance band requirements. Must be true to maintain exemption validity. Only required if exemption exists."
+      },
+      "fleet_size_changed": {
+        "type": "boolean",
+        "description": "Whether the HTS fleet size has changed since the exemption was granted. If true and band changes, DfT must be notified within 5 working days. Only required if exemption exists."
+      },
+      "dft_notified_within_5_days": {
+        "type": "boolean",
+        "description": "Whether DfT was notified within 5 working days of a band-changing fleet size change. Must be true if fleet size changed and band changed. Only required if fleet_size_changed is true."
+      },
+      "assessment_date": {
+        "type": "string",
+        "description": "Date when the assessment is being performed in YYYY-MM-DD format. Determines which milestone requirements apply."
+      }
+    }
+  },
+  "MILESTONE_REQUIREMENTS": {
+    "type": "object",
+    "description": "Progressive compliance milestone requirements based on fleet band and assessment date",
+    "properties": {
+      "Band_A": {
+        "type": "object",
+        "description": "Requirements for fleets with 1-5 vehicles",
+        "properties": {
+          "milestone_1": {
+            "type": "string",
+            "description": "Aug 2023 to Jul 2024: 25% of fleet must be partially compliant"
+          },
+          "milestone_2": {
+            "type": "string",
+            "description": "Aug 2024 to Jul 2025: 50% of fleet must be partially compliant"
+          },
+          "milestone_3": {
+            "type": "string",
+            "description": "Aug 2025 onwards: 1 vehicle must be fully compliant, remaining vehicles must be at least partially compliant"
+          }
+        }
+      },
+      "Band_B": {
+        "type": "object",
+        "description": "Requirements for fleets with 6-9 vehicles",
+        "properties": {
+          "milestone_1": {
+            "type": "string",
+            "description": "Aug 2023 to Jul 2024: 25% of fleet must be partially compliant"
+          },
+          "milestone_2": {
+            "type": "string",
+            "description": "Aug 2024 to Jul 2025: 1 vehicle must be fully compliant AND 50% of fleet must be partially compliant"
+          },
+          "milestone_3": {
+            "type": "string",
+            "description": "Aug 2025 onwards: 2 vehicles must be fully compliant, remaining vehicles must be at least partially compliant"
+          }
+        }
+      },
+      "Band_C": {
+        "type": "object",
+        "description": "Requirements for fleets with 10-29 vehicles",
+        "properties": {
+          "milestone_1": {
+            "type": "string",
+            "description": "Aug 2023 to Jul 2024: 25% of fleet must be partially compliant"
+          },
+          "milestone_2": {
+            "type": "string",
+            "description": "Aug 2024 to Jul 2025: 15% of fleet must be fully compliant AND 50% of fleet must be partially compliant"
+          },
+          "milestone_3": {
+            "type": "string",
+            "description": "Aug 2025 onwards: 25% of fleet must be fully compliant, remaining vehicles must be at least partially compliant"
+          }
+        }
+      },
+      "Band_D": {
+        "type": "object",
+        "description": "Requirements for fleets with 30 or more vehicles",
+        "properties": {
+          "milestone_1": {
+            "type": "string",
+            "description": "Aug 2023 to Jul 2024: 15% of fleet must be fully compliant AND 25% of fleet must be partially compliant"
+          },
+          "milestone_2": {
+            "type": "string",
+            "description": "Aug 2024 to Jul 2025: 25% of fleet must be fully compliant AND 50% of fleet must be partially compliant"
+          },
+          "milestone_3": {
+            "type": "string",
+            "description": "Aug 2025 onwards: 35% of fleet must be fully compliant, remaining vehicles must be at least partially compliant"
+          }
+        }
+      },
+      "regime_expiry": {
+        "type": "string",
+        "description": "The PSVAR exemption regime expires on 2026-07-31. Full PSVAR compliance is expected from 2026-08-01 onwards."
+      }
+    }
+  },
+  "DECISION_OUTCOMES": {
+    "type": "object",
+    "description": "Possible assessment outcomes and their meanings",
+    "properties": {
+      "OUT_OF_SCOPE": {
+        "type": "string",
+        "description": "Service is not covered by this exemption guidance (e.g., not HTS, not closed-door, no paying customers)"
+      },
+      "EXEMPTION_NOT_NEEDED": {
+        "type": "string",
+        "description": "All vehicles in the fleet are fully PSVAR compliant, no exemption required"
+      },
+      "POTENTIALLY_EXEMPT_IF_VALID_CERTIFICATE_EXISTS": {
+        "type": "string",
+        "description": "Fleet meets milestone requirements but needs a valid exemption certificate to rely on the exemption"
+      },
+      "NOT_EXEMPT": {
+        "type": "string",
+        "description": "Fleet does not meet milestone requirements or has an expired/invalid certificate"
+      },
+      "EXEMPT_BUT_NON_COMPLIANT_WITH_CONDITIONS": {
+        "type": "string",
+        "description": "Has valid exemption certificate but fails to meet operational conditions (e.g., no copy onboard, no alternative transport)"
+      },
+      "CAN_HAVE_EXEMPTION": {
+        "type": "string",
+        "description": "Operator meets all requirements and can rely on the exemption"
+      },
+      "CANNOT_HAVE_EXEMPTION": {
+        "type": "string",
+        "description": "Operator does not meet requirements and cannot rely on the exemption"
+      },
+      "FURTHER_INVESTIGATION_REQUIRED": {
+        "type": "string",
+        "description": "Missing critical information or edge cases require manual DVSA review"
+      },
+      "EXEMPTION_NOT_REQUIRED": {
+        "type": "string",
+        "description": "Fleet is fully compliant, no exemption needed"
+      }
+    }
+  }
+}

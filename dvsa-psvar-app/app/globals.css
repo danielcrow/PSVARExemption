@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: "nta", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #0b0c0c;
+  background: #f3f2f1;
+}
+
+a {
+  color: #1d70b8;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #003078;
+}
+
+a:visited {
+  color: #4c2c92;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  line-height: 1.6;
+}
+
+/* Made with Bob */

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DVSA PSVAR Exemption Assessment</title>
+  <style>
+    :root {
+      --dvsa-black: #0b0c0c;
+      --dvsa-blue: #003078;
+      --dvsa-yellow: #ffdd00;
+      --dvsa-light-grey: #f3f2f1;
+      --dvsa-mid-grey: #b1b4b6;
+      --dvsa-dark-grey: #505a5f;
+      --dvsa-white: #ffffff;
+      --dvsa-green: #00703c;
+      --page-max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dvsa-black);
+      background: var(--dvsa-light-grey);
+      line-height: 1.5;
+    }
+
+    .govuk-header {
+      background: var(--dvsa-black);
+      border-bottom: 10px solid var(--dvsa-blue);
+      color: var(--dvsa-white);
+    }
+
+    .govuk-width-container {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .govuk-header__container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .govuk-header__brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.2px;
+    }
+
+    .govuk-header__crest {
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--dvsa-white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .service-banner {
+      background: var(--dvsa-blue);
+      color: var(--dvsa-white);
+      padding: 14px 0;
+    }
+
+    .service-banner__title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    main {
+      padding: 32px 0 48px;
+    }
+
+    .hero {
+      background: var(--dvsa-white);
+      border-top: 8px solid var(--dvsa-yellow);
+      padding: 32px;
+      box-shadow: 0 2px 0 rgba(11, 12, 12, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .hero__caption {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--dvsa-dark-grey);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: 2.2rem;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0 0 12px;
+      max-width: 760px;
+      font-size: 1.1rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel,
+    .chat-shell {
+      background: var(--dvsa-white);
+      box-shadow: 0 2px 0 rgba(11, 12, 12, 0.08);
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .panel h2,
+    .chat-shell h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    .checklist {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .checklist li {
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 16px;
+      border-left: 6px solid var(--dvsa-green);
+      background: #f6fff8;
+    }
+
+    .chat-shell {
+      overflow: hidden;
+    }
+
+    .chat-shell__header {
+      background: var(--dvsa-blue);
+      color: var(--dvsa-white);
+      padding: 20px 24px;
+    }
+
+    .chat-shell__header p {
+      margin: 8px 0 0;
+      font-size: 0.95rem;
+    }
+
+    .chat-shell__body {
+      padding: 0;
+      min-height: 720px;
+      background: var(--dvsa-white);
+    }
+
+    #root {
+      min-height: 720px;
+    }
+
+    .support {
+      margin-top: 24px;
+      background: var(--dvsa-white);
+      padding: 24px 28px;
+      box-shadow: 0 2px 0 rgba(11, 12, 12, 0.08);
+    }
+
+    .support h2 {
+      margin-top: 0;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .support-card {
+      border: 1px solid var(--dvsa-mid-grey);
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .support-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .govuk-footer {
+      margin-top: 40px;
+      border-top: 10px solid var(--dvsa-blue);
+      background: var(--dvsa-white);
+      color: var(--dvsa-dark-grey);
+      padding: 24px 0 40px;
+      font-size: 0.95rem;
+    }
+
+    .govuk-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .layout,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      .panel,
+      .support {
+        padding: 22px;
+      }
+
+      .chat-shell__body,
+      #root {
+        min-height: 640px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="govuk-header">
+    <div class="govuk-width-container govuk-header__container">
+      <div class="govuk-header__brand">
+        <span class="govuk-header__crest" aria-hidden="true">DVSA</span>
+        <span>Driver and Vehicle Standards Agency</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="service-banner">
+    <div class="govuk-width-container">
+      <p class="service-banner__title">PSVAR exemption assessment service</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="govuk-width-container">
+      <section class="hero" aria-labelledby="page-title">
+        <span class="hero__caption">Accessibility regulations</span>
+        <h1 id="page-title">Check whether your home-to-school fleet may qualify for a PSVAR exemption</h1>
+        <p>
+          Use this service to provide operator, fleet and exemption details for a home-to-school
+          PSVAR exemption assessment.
+        </p>
+        <p>
+          The assistant will guide you through the questions in a form-like way and explain the
+          outcome in plain English.
+        </p>
+      </section>
+
+      <section class="layout" aria-label="Assessment content">
+        <div>
+          <div class="panel">
+            <h2>Before you start</h2>
+            <ul class="checklist">
+              <li>Have your company and operator licence details ready.</li>
+              <li>Have the authorised contact’s telephone number, email and postal address ready.</li>
+              <li>Know your total fleet size and how many vehicles are fully, partially and non-compliant.</li>
+              <li>Prepare the VIN for each vehicle in scope.</li>
+              <li>If you already hold an exemption certificate, have the certificate reference and dates available.</li>
+            </ul>
+
+            <div class="notice">
+              <strong>Important:</strong>
+              This version of the service is for home-to-school services only. Rail replacement
+              services are not assessed in this workflow.
+            </div>
+          </div>
+
+          <div class="support">
+            <h2>What the assistant will help with</h2>
+            <div class="support-grid">
+              <div class="support-card">
+                <h3>Collect details</h3>
+                <p>Guides you through company, contact, fleet and certificate information.</p>
+              </div>
+              <div class="support-card">
+                <h3>Validate entries</h3>
+                <p>Checks VIN formatting and helps identify missing or inconsistent information.</p>
+              </div>
+              <div class="support-card">
+                <h3>Explain the outcome</h3>
+                <p>Provides a clear assessment result, rationale and next actions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="chat-shell" aria-label="Chat assistant">
+          <div class="chat-shell__header">
+            <h2>PSVAR Exemption Assessment assistant</h2>
+            <p>Complete the assessment by answering the questions in the chat.</p>
+          </div>
+          <div class="chat-shell__body">
+            <div id="root"></div>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <p>
+        This prototype uses a watsonx Orchestrate embedded chat experience styled to reflect a DVSA-like public service interface.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    window.wxOConfiguration = {
+      orchestrationID: "81302fe0-fe5b-4422-9b83-73ac466836cf",
+      hostURL: "http://localhost:3000",
+      rootElementID: "root",
+      chatOptions: {
+        agentId: "4b97b2be-ea1a-4a3c-9e33-f79f320173f1"
+      }
+    };
+
+    setTimeout(function () {
+      const script = document.createElement("script");
+      script.src = `${window.wxOConfiguration.hostURL}/wxoLoader.js?embed=true`;
+      script.addEventListener("load", function () {
+        wxoLoader.init();
+      });
+      document.head.appendChild(script);
+    }, 0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSVAR Exemption Application - DVSA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "nta", Arial, sans-serif;
+            background-color: #f3f2f1;
+            color: #0b0c0c;
+            line-height: 1.6;
+        }
+
+        /* DVSA Header */
+        .govuk-header {
+            background-color: #0b0c0c;
+            border-bottom: 10px solid #1d70b8;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .govuk-header__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .govuk-header__logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .govuk-header__logotype {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .dvsa-logo {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            padding-left: 15px;
+            border-left: 2px solid #ffffff;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #1d70b8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0b0c0c;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 19px;
+            color: #505a5f;
+            margin-bottom: 10px;
+        }
+
+        .content-section {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            font-size: 27px;
+            font-weight: 700;
+            color: #0b0c0c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1d70b8;
+        }
+
+        .content-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #0b0c0c;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .info-box {
+            background-color: #f3f2f1;
+            border-left: 5px solid #1d70b8;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background-color: #fff7e6;
+            border-left: 5px solid #f47738;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box strong {
+            color: #d4351c;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+
+        .chat-container h2 {
+            font-size: 27px;
+            font-weight: 700;
+            color: #0b0c0c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1d70b8;
+        }
+
+        #root {
+            min-height: 0px;
+        }
+
+        /* Footer */
+        .govuk-footer {
+            background-color: #0b0c0c;
+            color: #ffffff;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .govuk-footer__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .govuk-footer__meta {
+            text-align: center;
+        }
+
+        .govuk-footer__link {
+            color: #ffffff;
+            text-decoration: underline;
+            margin: 0 15px;
+        }
+
+        .govuk-footer__link:hover {
+            color: #b1b4b6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .content-section h2 {
+                font-size: 22px;
+            }
+
+            .govuk-header__logotype {
+                font-size: 18px;
+            }
+
+            .dvsa-logo {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- DVSA Header -->
+    <header class="govuk-header">
+        <div class="govuk-header__container">
+            <div class="govuk-header__logo">
+                <a href="#" class="govuk-header__logotype">GOV.UK</a>
+                <span class="dvsa-logo">DVSA</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>PSVAR Exemption Application Portal</h1>
+            <p>Apply for an exemption from Public Service Vehicle Accessibility Regulations (PSVAR) for home-to-school transport services</p>
+        </div>
+
+        <!-- Information Section -->
+        <div class="content-section">
+            <h2>About PSVAR Exemptions</h2>
+            <p>The Public Service Vehicle Accessibility Regulations (PSVAR) require buses and coaches used for local or scheduled services to meet accessibility standards. However, exemptions may be available for certain home-to-school transport services.</p>
+
+            <h3>Who can apply?</h3>
+            <p>You may be eligible for a PSVAR exemption if you operate:</p>
+            <ul>
+                <li>Closed-door home-to-school transport services</li>
+                <li>Services with paying customers</li>
+                <li>A fleet that meets specific compliance requirements based on your fleet size band</li>
+            </ul>
+
+            <div class="info-box">
+                <p><strong>What you'll need:</strong></p>
+                <ul>
+                    <li>Company and operator licence details</li>
+                    <li>Contact information for correspondence</li>
+                    <li>Fleet composition details (total vehicles, compliance status)</li>
+                    <li>Vehicle Identification Numbers (VINs) for all vehicles</li>
+                    <li>Information about operational commitments</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Important:</strong> Make sure you have read the compliance requirements for your fleet size band before starting your application.</p>
+            </div>
+        </div>
+
+        <!-- Chat Application Section -->
+        <div class="chat-container">
+            <h2>Start Your Application</h2>
+            <p style="margin-bottom: 20px; font-size: 19px;">Use the chat assistant below to complete your PSVAR exemption application. The assistant will guide you through the process step by step.</p>
+            
+            <!-- Chat Widget Root -->
+            <div id="root"></div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="content-section">
+            <h2>What happens next?</h2>
+            <p>After you complete your application:</p>
+            <ol style="margin-left: 20px; font-size: 19px;">
+                <li style="margin-bottom: 10px;">Your eligibility will be assessed based on the information provided</li>
+                <li style="margin-bottom: 10px;">You'll receive an immediate decision on your application</li>
+                <li style="margin-bottom: 10px;">If eligible, you'll receive instructions on next steps</li>
+                <li style="margin-bottom: 10px;">If further investigation is required, a DVSA officer will contact you</li>
+            </ol>
+
+            <h3>Need help?</h3>
+            <p>If you have questions about the PSVAR exemption process, please contact:</p>
+            <div class="info-box">
+                <p><strong>DVSA Customer Service</strong></p>
+                <p>Email: <a href="mailto:enquiries@dvsa.gov.uk">enquiries@dvsa.gov.uk</a></p>
+                <p>Telephone: 0300 123 9000</p>
+                <p>Monday to Friday, 7:30am to 6pm</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="govuk-footer">
+        <div class="govuk-footer__container">
+            <div class="govuk-footer__meta">
+                <a href="#" class="govuk-footer__link">Privacy Policy</a>
+                <a href="#" class="govuk-footer__link">Accessibility</a>
+                <a href="#" class="govuk-footer__link">Terms and Conditions</a>
+                <p style="margin-top: 20px; color: #b1b4b6;">© Crown copyright</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Watson Orchestrate Chat Integration -->
+    <script>
+        window.wxOConfiguration = {
+            orchestrationID: "20250430-1552-4383-00f2-8e9318aa2f1b_20250501-1821-5146-80d6-0ef0535f5342",
+            hostURL: "https://eu-central-1.dl.watson-orchestrate.ibm.com",
+            rootElementID: "root",
+            chatOptions: {
+                agentId: "a48c5531-927d-423b-b3d6-c20a291ac99a", 
+            }
+        };
+        setTimeout(function () {
+            const script = document.createElement('script');
+            script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+            script.addEventListener('load', function () {
+                wxoLoader.init();
+            });
+            document.head.appendChild(script);
+        }, 0);                     
+    </script>
+</body>
+</html>
