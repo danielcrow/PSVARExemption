@@ -5,6 +5,11 @@ from .evaluate_psvar_exemption import (
     PSVARAssessmentOutput,
     evaluate_psvar_exemption,
 )
+from .generate_exemption_certificate import (
+    CertificateData,
+    VehicleEntry,
+    generate_exemption_certificate,
+)
 
 
 @flow(
@@ -19,10 +24,12 @@ def build_psvar_exemption_assessment_flow(aflow: Flow) -> Flow:
     Build the PSVAR exemption assessment flow.
 
     This flow accepts structured assessment input and invokes the
-    deterministic rules tool to produce a decision.
+    deterministic rules tool to produce a decision. Certificate generation
+    is handled within the evaluation tool based on the outcome.
     """
     assessment_node = aflow.tool(evaluate_psvar_exemption)
-
+    
+    # Simple linear flow - certificate generation is conditional within the tool
     aflow.sequence(START, assessment_node, END)
 
     aflow.map_output(

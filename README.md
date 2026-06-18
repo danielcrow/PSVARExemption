@@ -2,7 +2,21 @@
 
 ## Overview
 
-The PSVAR Exemption Assessment Agent helps transport operators determine whether they can rely on PSVAR (Public Service Vehicles Accessibility Regulations) exemption guidance for home-to-school services. The agent conducts an interactive interview, validates vehicle information, evaluates compliance requirements, and provides automated email notifications with assessment outcomes.
+The PSVAR Exemption Assessment Agent helps transport operators determine whether they can rely on PSVAR (Public Service Vehicles Accessibility Regulations) exemption guidance for home-to-school services. The agent conducts an interactive interview, validates vehicle information, evaluates compliance requirements including the new **Schedule A minimum fleet proportion calculation**, and provides automated email notifications with assessment outcomes.
+
+## Recent Updates
+
+### Schedule A Minimum Fleet Proportion Calculation (June 2026)
+
+The evaluation logic now implements the minimum fleet proportion calculation as specified in Schedule A of the draft exemption terms. This calculation determines the percentage of PSVAR compliant coaches that operators must maintain across their entire fleet.
+
+**Key Features:**
+- Calculates based on 1st May 2026 fleet data
+- Uses the higher of: actual in-scope proportion OR MTE minimum requirements
+- Validates operator compliance with Medium Term Exemption (MTE) requirements
+- Provides detailed rationale for the calculation
+
+See [SCHEDULE_A_CALCULATION.md](SCHEDULE_A_CALCULATION.md) for complete details.
 
 ## Architecture Diagram
 

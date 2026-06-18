@@ -89,6 +89,14 @@ class PSVARAssessmentInput(BaseModel):
         default=None,
         description="Authorised contact postcode.",
     )
+    in_scope_compliant_coaches_may_2026: Optional[int] = Field(
+        default=None,
+        description="Total number of fully PSVAR compliant coaches used on 1st May 2026 to provide home to school and rail replacement services combined.",
+    )
+    all_coaches_may_2026: Optional[int] = Field(
+        default=None,
+        description="Total number of coaches used on 1st May 2026 to provide any service (including HTS, RR, private hire, touring, etc).",
+    )
     service_types: list[str] = Field(
         description="Relevant service types operated. This HTS-only workflow expects HTS."
     )
@@ -242,6 +250,10 @@ class PSVARAssessmentOutput(BaseModel):
     next_actions: list[str] = Field(description="Recommended next actions.")
     missing_information: list[str] = Field(
         description="Information still needed for a more certain assessment."
+    )
+    exemption_certificate: Optional[str] = Field(
+        default=None,
+        description="Generated exemption certificate text (only when outcome is CAN_HAVE_EXEMPTION)."
     )
 
 
@@ -416,6 +428,90 @@ def _evaluate_milestone(
     return (len(reasons) == 0, reasons)
 
 
+def _calculate_minimum_fleet_proportion(
+    in_scope_compliant_coaches: int,
+    all_coaches: int,
+) -> tuple[float, str, list[str]]:
+    """
+    Calculate the minimum fleet proportion according to Schedule A.
+    
+    Returns:
+        tuple: (minimum_percentage, calculation_method, rationale_items)
+        - minimum_percentage: The higher of the two calculations
+        - calculation_method: Description of which method was used
+        - rationale_items: List of rationale strings explaining the calculation
+    """
+    rationale_items = []
+    
+    if all_coaches == 0:
+        return (0.0, "No coaches in fleet", ["No coaches in fleet to calculate proportion."])
+    
+    # Calculation 1: All compliant vehicles on in scope services
+    # (InScopeCompliantCoaches / AllCoaches) x 100
+    actual_proportion = (in_scope_compliant_coaches / all_coaches) * 100
+    rationale_items.append(
+        f"Actual in-scope compliant proportion: {in_scope_compliant_coaches} / {all_coaches} = {actual_proportion:.2f}%"
+    )
+    
+    # Calculation 2: MTE minimum requirements
+    # Determine minimum compliant coaches based on in_scope_compliant_coaches
+    if in_scope_compliant_coaches >= 1 and in_scope_compliant_coaches <= 5:
+        minimum_compliant_coaches = 1
+        rationale_items.append(
+            f"MTE requirement for {in_scope_compliant_coaches} in-scope coaches: minimum 1 compliant coach"
+        )
+    elif in_scope_compliant_coaches >= 6 and in_scope_compliant_coaches <= 9:
+        minimum_compliant_coaches = 2
+        rationale_items.append(
+            f"MTE requirement for {in_scope_compliant_coaches} in-scope coaches: minimum 2 compliant coaches"
+        )
+    elif in_scope_compliant_coaches >= 10 and in_scope_compliant_coaches <= 29:
+        minimum_compliant_coaches = ceil(in_scope_compliant_coaches * 0.25)
+        rationale_items.append(
+            f"MTE requirement for {in_scope_compliant_coaches} in-scope coaches: minimum 25% = {minimum_compliant_coaches} compliant coaches"
+        )
+    elif in_scope_compliant_coaches >= 30:
+        minimum_compliant_coaches = ceil(in_scope_compliant_coaches * 0.35)
+        rationale_items.append(
+            f"MTE requirement for {in_scope_compliant_coaches} in-scope coaches: minimum 35% = {minimum_compliant_coaches} compliant coaches"
+        )
+    else:
+        # No in-scope coaches
+        minimum_compliant_coaches = 0
+        rationale_items.append("No in-scope coaches on 1st May 2026")
+    
+    # Calculate MTE proportion
+    mte_proportion = (minimum_compliant_coaches / all_coaches) * 100
+    rationale_items.append(
+        f"MTE minimum proportion: {minimum_compliant_coaches} / {all_coaches} = {mte_proportion:.2f}%"
+    )
+    
+    # Choose the higher percentage
+    if actual_proportion >= mte_proportion:
+        minimum_percentage = actual_proportion
+        calculation_method = "Actual in-scope compliant proportion (higher)"
+        rationale_items.append(
+            f"Using actual proportion ({actual_proportion:.2f}%) as it is higher than MTE minimum ({mte_proportion:.2f}%)"
+        )
+    else:
+        minimum_percentage = mte_proportion
+        calculation_method = "MTE minimum requirement (higher)"
+        rationale_items.append(
+            f"Using MTE minimum ({mte_proportion:.2f}%) as it is higher than actual proportion ({actual_proportion:.2f}%)"
+        )
+    
+    # Check if operator was non-compliant with MTE on May 1st 2026
+    if in_scope_compliant_coaches < minimum_compliant_coaches:
+        rationale_items.append(
+            f"WARNING: On 1st May 2026, operator had {in_scope_compliant_coaches} compliant coaches but needed {minimum_compliant_coaches} to meet MTE requirements."
+        )
+        rationale_items.append(
+            "Exemption is not valid until minimum MTE percentage is achieved and cannot be used for home-to-school services until then."
+        )
+    
+    return (minimum_percentage, calculation_method, rationale_items)
+
+
 def _build_dvsa_task_payload(
     assessment: PSVARAssessmentInput,
     final_case_outcome: FinalCaseOutcome,
@@ -566,8 +662,8 @@ def evaluate_psvar_exemption(
 
         if assessment.hts_has_paying_customers is None:
             missing_information.append("Whether HTS services have paying customers.")
-        elif service_types == {"HTS"} and assessment.hts_has_paying_customers is False:
-            rationale.append("HTS services with no paying customers are outside PSVAR scope.")
+        elif service_types == {"HTS"} and assessment.hts_has_paying_customers is True:
+            rationale.append("HTS services with paying customers are outside this exemption guidance scope. Services with paying customers are considered public services and must comply with PSVAR without exemption.")
             final_case_outcome = "OUT_OF_SCOPE"
             return PSVARAssessmentOutput(
                 decision="OUT_OF_SCOPE",
@@ -695,6 +791,53 @@ def evaluate_psvar_exemption(
         )
 
     exemption_needed = True
+
+    # Calculate minimum fleet proportion per Schedule A if May 2026 data is provided
+    minimum_fleet_percentage = None
+    calculation_method = None
+    
+    if assessment.in_scope_compliant_coaches_may_2026 is not None and assessment.all_coaches_may_2026 is not None:
+        if assessment.all_coaches_may_2026 <= 0:
+            missing_information.append(
+                "Total coaches on 1st May 2026 must be greater than zero."
+            )
+        elif assessment.in_scope_compliant_coaches_may_2026 < 0:
+            missing_information.append(
+                "In-scope compliant coaches on 1st May 2026 cannot be negative."
+            )
+        elif assessment.in_scope_compliant_coaches_may_2026 > assessment.all_coaches_may_2026:
+            missing_information.append(
+                "In-scope compliant coaches cannot exceed total coaches on 1st May 2026."
+            )
+        else:
+            minimum_fleet_percentage, calculation_method, proportion_rationale = _calculate_minimum_fleet_proportion(
+                assessment.in_scope_compliant_coaches_may_2026,
+                assessment.all_coaches_may_2026,
+            )
+            rationale.append(
+                f"Minimum fleet proportion calculation (Schedule A): {minimum_fleet_percentage:.2f}%"
+            )
+            rationale.extend(proportion_rationale)
+            
+            # Check if current fleet meets the minimum proportion
+            current_compliant_percentage = (assessment.fully_compliant_vehicle_count / assessment.total_hts_rr_fleet_size) * 100
+            if current_compliant_percentage < minimum_fleet_percentage:
+                rationale.append(
+                    f"Current fleet compliance ({current_compliant_percentage:.2f}%) is below the minimum required proportion ({minimum_fleet_percentage:.2f}%)."
+                )
+                rationale.append(
+                    "To maintain exemption validity, you must achieve at least the minimum fleet proportion."
+                )
+    elif assessment.in_scope_compliant_coaches_may_2026 is not None or assessment.all_coaches_may_2026 is not None:
+        # One field provided but not the other
+        if assessment.in_scope_compliant_coaches_may_2026 is None:
+            missing_information.append(
+                "In-scope compliant coaches on 1st May 2026 (for Schedule A calculation)."
+            )
+        if assessment.all_coaches_may_2026 is None:
+            missing_information.append(
+                "Total coaches on 1st May 2026 (for Schedule A calculation)."
+            )
 
     band = _determine_band(assessment.total_hts_rr_fleet_size)
     milestone_compliant = None
